@@ -1,16 +1,20 @@
-[gd_resource type="SpriteFrames" load_steps=16 format=3 uid="uid://bsnk3jo0s0w16"]
+[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://bsnk3jo0s0w16"]
 
 [ext_resource type="Texture2D" uid="uid://073ytgcarjjl" path="res://Assets/Art/Player/Animations/Walk/Forward/frame0001.png" id="1_3tkjp"]
 [ext_resource type="Texture2D" uid="uid://sd04gde47u34" path="res://Assets/Art/Player/Animations/Idle/Forward/frame0002.png" id="2_bqhh4"]
 [ext_resource type="Texture2D" uid="uid://12foh4ee2lhl" path="res://Assets/Art/Player/Animations/Idle/Forward/frame0001.png" id="3_s87yo"]
 [ext_resource type="Texture2D" uid="uid://dbkmhwvluukis" path="res://Assets/Art/Player/Animations/Idle/Forward/frame0003.png" id="4_vues4"]
-[ext_resource type="Texture2D" uid="uid://mwj26nqxnvs8" path="res://Assets/Art/Player/Animations/Idle/Side/Idle_Side0000.png" id="5_4vm8c"]
-[ext_resource type="Texture2D" uid="uid://cvs7oeqrdodlx" path="res://Assets/Art/Player/Animations/Idle/Side/Idle_Side0001.png" id="6_icxcj"]
-[ext_resource type="Texture2D" uid="uid://bovqjvhsos6dt" path="res://Assets/Art/Player/Animations/Idle/Side/Idle_Side0002.png" id="7_78mpr"]
-[ext_resource type="Texture2D" uid="uid://ch6hovuemcp70" path="res://Assets/Art/Player/Animations/Idle/Side/Idle_Side0003.png" id="8_rx3xs"]
+[ext_resource type="Texture2D" uid="uid://mwj26nqxnvs8" path="res://Assets/Art/Player/Animations/Idle/Side/Left/Idle_Side0000.png" id="5_4vm8c"]
+[ext_resource type="Texture2D" uid="uid://cvs7oeqrdodlx" path="res://Assets/Art/Player/Animations/Idle/Side/Left/Idle_Side0001.png" id="6_icxcj"]
+[ext_resource type="Texture2D" uid="uid://bovqjvhsos6dt" path="res://Assets/Art/Player/Animations/Idle/Side/Left/Idle_Side0002.png" id="7_78mpr"]
+[ext_resource type="Texture2D" uid="uid://ch6hovuemcp70" path="res://Assets/Art/Player/Animations/Idle/Side/Left/Idle_Side0003.png" id="8_rx3xs"]
 [ext_resource type="Texture2D" uid="uid://0wvpt8waj3n7" path="res://Assets/Art/Player/Animations/Walk/Forward/frame0000.png" id="9_71m1j"]
+[ext_resource type="Texture2D" uid="uid://dob0tvpqqqdd0" path="res://Assets/Art/Player/Animations/Idle/Side/Right/Idle_Side_Right0000.png" id="9_d5s40"]
 [ext_resource type="Texture2D" uid="uid://dx8xbo8qiiij1" path="res://Assets/Art/Player/Animations/Walk/Forward/frame0002.png" id="10_d5s40"]
+[ext_resource type="Texture2D" uid="uid://cpa5ju4bs3jlc" path="res://Assets/Art/Player/Animations/Idle/Side/Right/Idle_Side_Right0001.png" id="10_jyq5y"]
 [ext_resource type="Texture2D" uid="uid://dg3dcsjsyphkw" path="res://Assets/Art/Player/Animations/Walk/Forward/frame0003.png" id="11_jyq5y"]
+[ext_resource type="Texture2D" uid="uid://cwxrgbihltjeh" path="res://Assets/Art/Player/Animations/Idle/Side/Right/Idle_Side_Right0002.png" id="11_m4cgd"]
+[ext_resource type="Texture2D" uid="uid://cgqwj07qa01v0" path="res://Assets/Art/Player/Animations/Idle/Side/Right/Idle_Side_Right0003.png" id="12_adbjb"]
 [ext_resource type="Texture2D" uid="uid://bp7v8o2ovveh1" path="res://Assets/Art/Player/Animations/Walk/Side/Left0000.png" id="12_m4cgd"]
 [ext_resource type="Texture2D" uid="uid://bhuhrbgesjnk4" path="res://Assets/Art/Player/Animations/Walk/Side/Left0001.png" id="13_adbjb"]
 [ext_resource type="Texture2D" uid="uid://dyrnioukyf67d" path="res://Assets/Art/Player/Animations/Walk/Side/Left0002.png" id="14_28y17"]
@@ -49,7 +53,24 @@ animations = [{
 "texture": ExtResource("8_rx3xs")
 }],
 "loop": true,
-"name": &"Idle_Side",
+"name": &"Idle_Side_Left",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_d5s40")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jyq5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m4cgd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_adbjb")
+}],
+"loop": false,
+"name": &"Idle_Side_Right",
 "speed": 12.0
 }, {
 "frames": [{

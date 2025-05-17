@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch6hovuemcp70"
-path="res://.godot/imported/Idle_Side0003.png-3de54d85aab75804c06f9b14f55dc5b1.ctex"
+uid="uid://mwj26nqxnvs8"
+path="res://.godot/imported/Idle_Side0000.png-0ec168d566a0370b5857d221dfc124d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Player/Animations/Idle/Side/Idle_Side0003.png"
-dest_files=["res://.godot/imported/Idle_Side0003.png-3de54d85aab75804c06f9b14f55dc5b1.ctex"]
+source_file="res://Assets/Art/Player/Animations/Idle/Side/Left/Idle_Side0000.png"
+dest_files=["res://.godot/imported/Idle_Side0000.png-0ec168d566a0370b5857d221dfc124d9.ctex"]
 
 [params]
 
