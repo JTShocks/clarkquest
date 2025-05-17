@@ -13,6 +13,7 @@ public partial class PlayerController : CharacterBody2D
 
 	[Export]
 	AnimationTree animationTree;
+	[Export]
 	AnimationNodeStateMachinePlayback animationMode;
 
 	
@@ -27,7 +28,6 @@ public partial class PlayerController : CharacterBody2D
 	public override void _Ready()
 	{
 		camera = GetNode<Camera2D>("PlayerCamera");
-		var animationMode = animationTree.Get("parameters/playback");
 		//animationTree = GetNode<AnimationTree>("AnimationTree");
 
 	}
@@ -82,21 +82,22 @@ public partial class PlayerController : CharacterBody2D
 		GD.Print(inputDirection.ToString());
     }
 
+	public void _unhandled_input()
+	{
+
+	}
+
 	void UpdateAnimations()
 	{
-			animationTree.Set("parameters/Walk/blend_position", 1);
+		animationTree.Set("parameters/Locomotion/conditions/is_moving", isMoving);
+		animationTree.Set("parameters/Locomotion/conditions/idle", !isMoving);
+		
 
 
 		if (isMoving)
 		{
-			GD.Print("Going to Walk");
-			animationTree.Set("parameters/Idle/blend_position", inputDirection.X);
-			stateMachinePlayback.Travel("Walk");
-		}
-		else
-		{
-			GD.Print("Going to Idle");
-			stateMachinePlayback.Travel("Idle");
+			animationTree.Set("parameters/Locomotion/Idle/blend_position", inputDirection.X);
+			animationTree.Set("parameters/Locomotion/Walk/blend_position", inputDirection);
 		}
 	}
 
