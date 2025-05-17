@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcoaxva7wluhy"]
+[gd_scene load_steps=4 format=3 uid="uid://dcoaxva7wluhy"]
 
+[ext_resource type="Script" path="res://Assets/Scripts/Player/PlayerController.cs" id="1_cvnsp"]
 [ext_resource type="SpriteFrames" uid="uid://bsnk3jo0s0w16" path="res://Scenes/player_animations.tres" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
 size = Vector2(32, 32)
 
-[node name="Node2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_cvnsp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -13,7 +15,7 @@ size = Vector2(32, 32)
 sprite_frames = ExtResource("2_cvnsp")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.915173
+frame_progress = 0.355631
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 32)
