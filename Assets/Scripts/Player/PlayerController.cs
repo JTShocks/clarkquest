@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class PlayerController : CharacterBody2D, IInteractable
+public partial class PlayerController : CharacterBody2D
 {
 
 	Camera2D camera;
@@ -57,15 +57,15 @@ public partial class PlayerController : CharacterBody2D, IInteractable
     {
 		Velocity = inputDirection.Normalized() * moveSpeed;
 		MoveAndSlide();
-		if(Input.IsActionJustPressed("Interact"))
-		{
-			GD.Print("Interacted");
-		}
+		//if(Input.IsActionJustPressed("Interact"))
+		//{
+		//	GD.Print("Interacted");
+		//}
     }
 
     public void GetInput()
     {
-        inputDirection = Input.GetVector("Left", "Right", "Up", "Down");
+        inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		
     }
 
@@ -80,10 +80,10 @@ public partial class PlayerController : CharacterBody2D, IInteractable
 		return true;
     }
 
-    public void Interact(Interactor interactor)
-    {
-        //throw new NotImplementedException();
-    }
+    //public void Interact(Interactor interactor)
+   // {
+     //   //throw new NotImplementedException();
+    //}
 
     public void OnSelect()
     {
