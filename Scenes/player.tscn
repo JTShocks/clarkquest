@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dcoaxva7wluhy"]
+[gd_scene load_steps=29 format=3 uid="uid://dcoaxva7wluhy"]
 
 [ext_resource type="Script" uid="uid://c5pp2ss8jowix" path="res://Assets/Scripts/Player/PlayerController.cs" id="1_cvnsp"]
 [ext_resource type="AnimationNodeStateMachinePlayback" uid="uid://c2al4rfqsjib0" path="res://Scenes/new_animation_node_state_machine_playback.tres" id="2_6t5aa"]
@@ -169,7 +169,37 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Walk_Side"]
+"values": [&"Walk_Side_Left"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_fkybt"]
+resource_name = "Walk_Right"
+length = 0.333342
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Walk_Side_Right"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -191,7 +221,8 @@ _data = {
 &"Idle_Right": SubResource("Animation_8erm5"),
 &"RESET": SubResource("Animation_vgqql"),
 &"Walk_Forward": SubResource("Animation_f1ek2"),
-&"Walk_Left": SubResource("Animation_6t5aa")
+&"Walk_Left": SubResource("Animation_6t5aa"),
+&"Walk_Right": SubResource("Animation_fkybt")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f1ek2"]
@@ -215,13 +246,13 @@ blend_point_2/pos = 1.0
 animation = &"Walk_Left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fkybt"]
-animation = &"Walk_Left"
+animation = &"Walk_Right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x3wgy"]
 animation = &"Walk_Left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3smsa"]
-animation = &"Walk_Left"
+animation = &"Walk_Right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8erm5"]
 animation = &"Walk_Forward"
@@ -272,7 +303,7 @@ node_connections = [&"output", 0, &"Locomotion"]
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationTree")]
 motion_mode = 1
 script = ExtResource("1_cvnsp")
-moveSpeed = 200
+moveSpeed = 350
 animationTree = NodePath("AnimationTree")
 animationMode = ExtResource("2_6t5aa")
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8shaq4wjrybp"]
 
 [ext_resource type="PackedScene" uid="uid://dcoaxva7wluhy" path="res://Scenes/player.tscn" id="1_a02cp"]
-[ext_resource type="Texture2D" uid="uid://bp7v8o2ovveh1" path="res://Assets/Art/Player/Animations/Walk/Side/Left0000.png" id="2_go701"]
+[ext_resource type="Texture2D" uid="uid://bp7v8o2ovveh1" path="res://Assets/Art/Player/Animations/Walk/Side/Left/Left0000.png" id="2_go701"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_go701"]
 

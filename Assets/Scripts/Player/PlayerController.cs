@@ -10,6 +10,7 @@ public partial class PlayerController : CharacterBody2D
 	public int moveSpeed;
 
 	bool isMoving;
+	bool isIdle;
 
 	[Export]
 	AnimationTree animationTree;
@@ -37,6 +38,7 @@ public partial class PlayerController : CharacterBody2D
 	{
 		GetInput();
 				isMoving = inputDirection != Vector2.Zero && Velocity.Length() != 0;
+				isIdle = !isMoving;
 		UpdateAnimations();
 
 
@@ -90,7 +92,7 @@ public partial class PlayerController : CharacterBody2D
 	void UpdateAnimations()
 	{
 		animationTree.Set("parameters/Locomotion/conditions/is_moving", isMoving);
-		animationTree.Set("parameters/Locomotion/conditions/idle", !isMoving);
+		animationTree.Set("parameters/Locomotion/conditions/idle", isIdle);
 		
 
 

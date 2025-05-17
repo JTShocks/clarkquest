@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dklyfmo04h8ji"
-path="res://.godot/imported/Left0003.png-6e2947b9620750b5a1063d069ed806fb.ctex"
+uid="uid://bhuhrbgesjnk4"
+path="res://.godot/imported/Left0001.png-dddfa6ce2d289a1a9bf2b62a06dd1f33.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Player/Animations/Walk/Side/Left0003.png"
-dest_files=["res://.godot/imported/Left0003.png-6e2947b9620750b5a1063d069ed806fb.ctex"]
+source_file="res://Assets/Art/Player/Animations/Walk/Side/Left/Left0001.png"
+dest_files=["res://.godot/imported/Left0001.png-dddfa6ce2d289a1a9bf2b62a06dd1f33.ctex"]
 
 [params]
 
