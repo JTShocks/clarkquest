@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnfp5h5nrxrou"]
+[gd_scene load_steps=3 format=3 uid="uid://bnfp5h5nrxrou"]
+
+[ext_resource type="Script" uid="uid://146d0adv0755" path="res://Assets/Scripts/Interactable.cs" id="1_fmf1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe0pu"]
 size = Vector2(64, 64)
@@ -6,6 +8,7 @@ size = Vector2(64, 64)
 [node name="Sign" type="Node2D"]
 
 [node name="InteractArea" type="Area2D" parent="."]
+script = ExtResource("1_fmf1u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("RectangleShape2D_xe0pu")

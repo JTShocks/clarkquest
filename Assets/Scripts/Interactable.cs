@@ -9,7 +9,7 @@ public partial class Interactable : Area2D
     public delegate void OnInteractEventHandler();
 
     [Export] string interactText = "Activate";
-    [Export] Label interactPrompt;
+    [Export] Transform2D interactPromptLocation;
     
 
     //When determining if a player should interact with something, the prompt should ONLY be on the one highlighted
@@ -18,14 +18,7 @@ public partial class Interactable : Area2D
 
     public override void _Ready()
     {
-        interactPrompt.Text = "<key>\n ";
-        interactPrompt.Visible = false;
-        base._Ready();
-        var actions = InputMap.ActionGetEvents("Interact")[0];
-        if(actions is InputEventKey key)
-        {
-            interactPrompt.Text.Replace("<key>",key.KeyLabel.ToString());
-        }
+
 
         //Internal connections. Nothing outside will be affected by this
         BodyEntered += EnterRange;
@@ -41,10 +34,18 @@ public partial class Interactable : Area2D
     void EnterRange(Node2D body)
     {
         //Activate the prompt
-        interactPrompt.Visible = true;
+        //interactPrompt.Visible = true;
+        if (body is PlayerController player)
+        {
+            player.ChangeInteractPrompt(true);
+        }
     }
     void ExitRange(Node2D body)
     {
-        interactPrompt.Visible = false;
+        //interactPrompt.Visible = false;
+                if (body is PlayerController player)
+        {
+            player.ChangeInteractPrompt(true);
+        }
     }
 }

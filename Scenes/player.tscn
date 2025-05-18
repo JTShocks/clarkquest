@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dcoaxva7wluhy"]
+[gd_scene load_steps=30 format=3 uid="uid://dcoaxva7wluhy"]
 
 [ext_resource type="Script" uid="uid://c5pp2ss8jowix" path="res://Assets/Scripts/Player/PlayerController.cs" id="1_cvnsp"]
 [ext_resource type="AnimationNodeStateMachinePlayback" uid="uid://c2al4rfqsjib0" path="res://Scenes/new_animation_node_state_machine_playback.tres" id="2_6t5aa"]
@@ -241,6 +241,7 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_tx1dd")
 blend_point_1/pos = -1.0
 blend_point_2/node = SubResource("AnimationNodeAnimation_gymyn")
 blend_point_2/pos = 1.0
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vgqql"]
 animation = &"Walk_Left"
@@ -260,6 +261,9 @@ animation = &"Walk_Forward"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6t5aa"]
 animation = &"Walk_Forward"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pu2lt"]
+animation = &"Walk_Left"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_f1ek2"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_vgqql")
 blend_point_0/pos = Vector2(-1, -1)
@@ -273,6 +277,8 @@ blend_point_4/node = SubResource("AnimationNodeAnimation_8erm5")
 blend_point_4/pos = Vector2(0, 0)
 blend_point_5/node = SubResource("AnimationNodeAnimation_6t5aa")
 blend_point_5/pos = Vector2(0, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_pu2lt")
+blend_point_6/pos = Vector2(0, -1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6t5aa"]
@@ -295,7 +301,7 @@ states/Walk/position = Vector2(576, 214)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_6t5aa"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_vgqql"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_fkybt")]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_8erm5"]
-graph_offset = Vector2(-733.937, -115.93)
+graph_offset = Vector2(-1009.32, 0)
 nodes/Locomotion/node = SubResource("AnimationNodeStateMachine_3smsa")
 nodes/Locomotion/position = Vector2(-280, 60)
 node_connections = [&"output", 0, &"Locomotion"]
@@ -328,5 +334,19 @@ tree_root = SubResource("AnimationNodeBlendTree_8erm5")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Locomotion/conditions/idle = false
 parameters/Locomotion/conditions/is_moving = false
-parameters/Locomotion/Idle/blend_position = 0
-parameters/Locomotion/Walk/blend_position = Vector2(0.00342464, -0.0126126)
+parameters/Locomotion/Idle/blend_position = -0.997824
+parameters/Locomotion/Walk/blend_position = Vector2(0, 1)
+
+[node name="InteractPrompt" type="RichTextLabel" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -96.0
+offset_right = 72.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Here"
