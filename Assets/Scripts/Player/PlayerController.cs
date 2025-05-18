@@ -19,6 +19,8 @@ public partial class PlayerController : CharacterBody2D
 
 	[Export] RichTextLabel interactPrompt;
 
+	RayCast2D interactRay;
+
 
 
 	private bool isFacingLeft = false;
@@ -32,6 +34,7 @@ public partial class PlayerController : CharacterBody2D
 	{
 		camera = GetNode<Camera2D>("PlayerCamera");
 		//animationTree = GetNode<AnimationTree>("AnimationTree");
+		interactRay = GetNode<RayCast2D>("RayCast2D");
 
 		interactPrompt.Visible = false;
 
@@ -79,6 +82,11 @@ public partial class PlayerController : CharacterBody2D
 	{
 		inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		GD.Print(inputDirection.ToString());
+
+		if (Velocity != Vector2.Zero)
+		{
+			interactRay.TargetPosition = Velocity.Normalized() * 50;
+		}
 	}
 
 	void UpdateAnimations()

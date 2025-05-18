@@ -6,7 +6,8 @@ public partial interface IEntity
 
     //An interface to determine if a thing can be affected by potions/ has the health we want to apply to it
 
-    float moveSpeed {get;set;}          
+    float moveSpeed { get; set; }
+    string name{ get; set; }          
 
 
 }
