@@ -104,12 +104,12 @@ public partial class PlayerController : CharacterBody2D
 	public void ChangeInteractPrompt(bool inRange)
 	{
 
-		interactPrompt.Text.Replace("<text>", "Hello", StringComparison.CurrentCulture);
+		interactPrompt.Text = interactPrompt.Text.Replace("<text>", "Hello");
 		interactPrompt.Visible = inRange;
 		var actions = InputMap.ActionGetEvents("Interact")[0];
 		if (actions is InputEventKey key)
 		{
-			//interactPrompt.Text.Replace("<key>", key.Keycode.ToString());
+			interactPrompt.Text = interactPrompt.Text.Replace("<key>", key.Keycode.ToString());
 		}
 	}
 
