@@ -1,12 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://8shaq4wjrybp"]
+[gd_scene load_steps=11 format=3 uid="uid://8shaq4wjrybp"]
 
 [ext_resource type="PackedScene" uid="uid://dcoaxva7wluhy" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://bp7v8o2ovveh1" path="res://Assets/Art/Player/Animations/Walk/Side/Left/Left0000.png" id="2_go701"]
 [ext_resource type="PackedScene" uid="uid://bnfp5h5nrxrou" path="res://Scenes/sign.tscn" id="3_5a7ea"]
+[ext_resource type="Texture2D" uid="uid://cxeki22d61cvl" path="res://Assets/Art/Sprites/NPC's/Granma/frame0000.png" id="4_o06y3"]
+[ext_resource type="Texture2D" uid="uid://bvp7orqk8vvqd" path="res://Assets/Art/Sprites/NPC's/Granma/frame0001.png" id="5_k7acu"]
+[ext_resource type="Texture2D" uid="uid://dmbgmot6du2fe" path="res://Assets/Art/Sprites/NPC's/Granma/frame0002.png" id="6_5v1tr"]
+[ext_resource type="Texture2D" uid="uid://c4dsl76vmtjan" path="res://Assets/Art/Sprites/NPC's/Granma/frame0003.png" id="7_0fj1v"]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_go701"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikia7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_o06y3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_k7acu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5v1tr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0fj1v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o06y3"]
+size = Vector2(90, 48)
+
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Left0000" type="Sprite2D" parent="."]
 position = Vector2(166, 146)
@@ -17,3 +45,15 @@ animationMode = SubResource("AnimationNodeStateMachinePlayback_go701")
 
 [node name="Sign" parent="." instance=ExtResource("3_5a7ea")]
 position = Vector2(186, 6)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-281, -24)
+
+[node name="Granma" type="AnimatedSprite2D" parent="StaticBody2D"]
+position = Vector2(0, -42)
+sprite_frames = SubResource("SpriteFrames_ikia7")
+autoplay = "default"
+frame_progress = 0.584918
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_o06y3")

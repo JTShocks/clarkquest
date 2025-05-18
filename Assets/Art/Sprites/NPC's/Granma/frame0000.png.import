@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg3dcsjsyphkw"
-path="res://.godot/imported/frame0003.png-2a92a232dbaf5ae6ab266dfdc80fe402.ctex"
+uid="uid://cxeki22d61cvl"
+path="res://.godot/imported/frame0000.png-573d974167f293951b000eb538399f34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Player/Animations/Walk/Forward/frame0003.png"
-dest_files=["res://.godot/imported/frame0003.png-2a92a232dbaf5ae6ab266dfdc80fe402.ctex"]
+source_file="res://Assets/Art/Sprites/NPC's/Granma/frame0000.png"
+dest_files=["res://.godot/imported/frame0000.png-573d974167f293951b000eb538399f34.ctex"]
 
 [params]
 
