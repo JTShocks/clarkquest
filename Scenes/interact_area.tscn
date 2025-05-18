@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvf3l6kh6dau3"]
+
+[ext_resource type="Script" uid="uid://146d0adv0755" path="res://Assets/Scripts/Interactable.cs" id="1_5u50n"]
+[ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Scenes/default_text_theme.tres" id="2_ot2l7"]
+[ext_resource type="FontFile" uid="uid://ddpws04rl0o60" path="res://Assets/Art/Fonts/chalkboard_3/Chalkboard-Regular.ttf" id="3_4wnxi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xe0pu"]
+size = Vector2(64, 64)
+
+[node name="InteractArea" type="Area2D"]
+script = ExtResource("1_5u50n")
+interactPromptLocation = Vector2(0, -96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xe0pu")
+debug_color = Color(0.719547, 0.250485, 1, 0.42)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -72.0
+offset_top = -144.0
+offset_right = 72.0
+offset_bottom = 16.0
+
+[node name="InteractPrompt" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.906
+anchor_right = 0.5
+anchor_bottom = 0.906
+offset_left = -72.0
+offset_top = -160.96
+offset_right = 72.0
+offset_bottom = -112.96
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ot2l7")
+theme_override_fonts/normal_font = ExtResource("3_4wnxi")
+bbcode_enabled = true
+text = "[shake rate=12]<text>[/shake]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
