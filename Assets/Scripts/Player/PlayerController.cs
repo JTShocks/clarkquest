@@ -38,6 +38,8 @@ public partial class PlayerController : CharacterBody2D
 
 		interactPrompt.Visible = false;
 
+		Global.player = this;
+
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
