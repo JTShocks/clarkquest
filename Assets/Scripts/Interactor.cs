@@ -1,4 +1,4 @@
-using Game.Items;
+
 using Godot;
 using System;
 
@@ -14,8 +14,6 @@ public partial class Interactor : Area2D
 	[Export]
 	float interactionRange = 3;
 
-	[Export]
-	public Item ActiveItem;
 	[Export]
 	public RayCast2D ray;
 
@@ -52,54 +50,12 @@ public partial class Interactor : Area2D
 			
 			if(mouseClick.ButtonIndex == MouseButton.Left && mouseClick.Pressed)
 			{		
-					if(ActiveItem != null && ActiveItem is Weapon weapon)
-					{
-		
-						weapon.Attack();
-							
-					}		
-				//If the Left mouse is pressed
 				if(highlightTarget != null) //If there is a target 
 				{
-	
-				//Check if there is an active item in the slot
-					//If YES, use that item on the target (such as shoot a weapon)
-				//If not, the 
-
+					highlightTarget.Interact();
 				}
 
 
-
-			}
-			else if(mouseClick.ButtonIndex == MouseButton.Right && mouseClick.Pressed)
-			{
-				//If the Right mouse is pressed
-				if(highlightTarget != null) //If there is a target 
-				{
-
-					if(ActiveItem != null)
-					{
-						//If you can interact with the 
-						if(ActiveItem.UseOn(highlightTarget))
-						{
-							GD.Print("Item was used");
-							//If the item is successfully used on the target
-							//Consume the item (if it is consumed)
-						}
-						else
-						{
-							GD.Print("Cannot use that item on this");
-						}
-					}
-					else
-					{
-						highlightTarget.Interact();
-					}
-				}
-				else //if there is no target for the input
-				{
-					//Drop the item on the ground
-				}
 			}
 			
 		}
@@ -121,23 +77,12 @@ public partial class Interactor : Area2D
 
     public void OnInteract()
 	{
-
-		if(ActiveItem is Weapon weapon)
-		{
-			weapon.Attack();
-			return;
-		}
 		var col = ray.GetCollider();
 		if(col is IInteractable target)
 		{
 			
 
 		}
-		
-		
-
-
-
 
 	}
 
