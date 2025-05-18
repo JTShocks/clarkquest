@@ -1,8 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://dcoaxva7wluhy"]
+[gd_scene load_steps=32 format=3 uid="uid://dcoaxva7wluhy"]
 
 [ext_resource type="Script" uid="uid://c5pp2ss8jowix" path="res://Assets/Scripts/Player/PlayerController.cs" id="1_cvnsp"]
 [ext_resource type="AnimationNodeStateMachinePlayback" uid="uid://c2al4rfqsjib0" path="res://Scenes/new_animation_node_state_machine_playback.tres" id="2_6t5aa"]
 [ext_resource type="SpriteFrames" uid="uid://bsnk3jo0s0w16" path="res://Scenes/player_animations.tres" id="2_cvnsp"]
+[ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Scenes/default_text_theme.tres" id="4_fkybt"]
+[ext_resource type="FontFile" uid="uid://ddpws04rl0o60" path="res://Assets/Art/Fonts/chalkboard_3/Chalkboard-Regular.ttf" id="5_x3wgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
 size = Vector2(32, 32)
@@ -306,22 +308,23 @@ nodes/Locomotion/node = SubResource("AnimationNodeStateMachine_3smsa")
 nodes/Locomotion/position = Vector2(-280, 60)
 node_connections = [&"output", 0, &"Locomotion"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationTree")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationTree", "interactPrompt")]
 motion_mode = 1
 script = ExtResource("1_cvnsp")
 moveSpeed = 350
 animationTree = NodePath("AnimationTree")
 animationMode = ExtResource("2_6t5aa")
+interactPrompt = NodePath("Control/InteractPrompt")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
 sprite_frames = ExtResource("2_cvnsp")
 animation = &"Idle_Side_Right"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_v0iea")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -337,16 +340,31 @@ parameters/Locomotion/conditions/is_moving = false
 parameters/Locomotion/Idle/blend_position = -0.997824
 parameters/Locomotion/Walk/blend_position = Vector2(0, 1)
 
-[node name="InteractPrompt" type="RichTextLabel" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = -72.0
-offset_top = -96.0
+offset_top = -144.0
 offset_right = 72.0
-offset_bottom = -48.0
+offset_bottom = 16.0
+
+[node name="InteractPrompt" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.906
+anchor_right = 0.5
+anchor_bottom = 0.906
+offset_left = -72.0
+offset_top = -160.96
+offset_right = 72.0
+offset_bottom = -112.96
 grow_horizontal = 2
-grow_vertical = 0
-text = "Press Here"
+grow_vertical = 2
+theme = ExtResource("4_fkybt")
+theme_override_fonts/normal_font = ExtResource("5_x3wgy")
+bbcode_enabled = true
+text = "[shake rate=12]HELLO[/shake]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

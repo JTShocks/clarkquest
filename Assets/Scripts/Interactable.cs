@@ -9,8 +9,8 @@ public partial class Interactable : Area2D
     public delegate void OnInteractEventHandler();
 
     [Export] string interactText = "Activate";
-    [Export] Transform2D interactPromptLocation;
-    
+    [Export] Vector2 interactPromptLocation;
+
 
     //When determining if a player should interact with something, the prompt should ONLY be on the one highlighted
 
@@ -37,15 +37,17 @@ public partial class Interactable : Area2D
         //interactPrompt.Visible = true;
         if (body is PlayerController player)
         {
+            GD.Print("Entering interact area");
             player.ChangeInteractPrompt(true);
         }
     }
     void ExitRange(Node2D body)
     {
         //interactPrompt.Visible = false;
-                if (body is PlayerController player)
+        if (body is PlayerController player)
         {
-            player.ChangeInteractPrompt(true);
+            GD.Print("Leaving interact area");
+            player.ChangeInteractPrompt(false);
         }
     }
 }

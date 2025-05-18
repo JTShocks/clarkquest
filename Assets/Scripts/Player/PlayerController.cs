@@ -17,7 +17,7 @@ public partial class PlayerController : CharacterBody2D
 	[Export]
 	AnimationNodeStateMachinePlayback animationMode;
 
-	[Export] Label interactPrompt;
+	[Export] RichTextLabel interactPrompt;
 
 
 
@@ -32,6 +32,8 @@ public partial class PlayerController : CharacterBody2D
 	{
 		camera = GetNode<Camera2D>("PlayerCamera");
 		//animationTree = GetNode<AnimationTree>("AnimationTree");
+
+		interactPrompt.Visible = false;
 
 	}
 
@@ -101,13 +103,13 @@ public partial class PlayerController : CharacterBody2D
 
 	public void ChangeInteractPrompt(bool inRange)
 	{
-		interactPrompt.Text = "<key>\n ";
-		interactPrompt.Visible = false;
-		base._Ready();
+
+		interactPrompt.Text.Replace("<text>", "Hello", StringComparison.CurrentCulture);
+		interactPrompt.Visible = inRange;
 		var actions = InputMap.ActionGetEvents("Interact")[0];
 		if (actions is InputEventKey key)
 		{
-			interactPrompt.Text.Replace("<key>", key.KeyLabel.ToString());
+			//interactPrompt.Text.Replace("<key>", key.Keycode.ToString());
 		}
 	}
 

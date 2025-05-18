@@ -9,6 +9,7 @@ size = Vector2(64, 64)
 
 [node name="InteractArea" type="Area2D" parent="."]
 script = ExtResource("1_fmf1u")
+interactPromptLocation = Vector2(0, -96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("RectangleShape2D_xe0pu")
