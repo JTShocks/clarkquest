@@ -9,6 +9,8 @@ public partial class PlayerController : CharacterBody2D
 	[Export]
 	public int moveSpeed;
 
+	bool canMove = true;
+
 	bool isMoving;
 	bool isIdle;
 
@@ -21,6 +23,7 @@ public partial class PlayerController : CharacterBody2D
 
 	RayCast2D interactRay;
 
+	GodotObject raycastTarget;
 
 
 	private bool isFacingLeft = false;
@@ -45,24 +48,36 @@ public partial class PlayerController : CharacterBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		//GetInput();
+		GetInput();
 		isMoving = inputDirection != Vector2.Zero && Velocity.Length() != 0;
 		isIdle = !isMoving;
 		UpdateAnimations();
-
+			raycastTarget = interactRay.GetCollider();
+		ChangeInteractPrompt(raycastTarget != null);
 	}
 
 	public override void _Input(InputEvent @event)
 	{
+
 		if (@event is InputEventKey key)
 		{
-			GetInput();
 
-			if (key.IsActionPressed("Interact"))
+		}
+		if (canMove)
+		{
+			//Inputs only when player can move and is not frozen
+			if (@event.IsActionPressed("Interact"))
 			{
-				Interact();
+				//Start checking interact conditions
+				var target = raycastTarget as IInteractable;
+				if (target != null)
+				{
+					target.Interact();
+
+				}
 			}
 		}
+
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -83,7 +98,7 @@ public partial class PlayerController : CharacterBody2D
 	public void GetInput()
 	{
 		inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		GD.Print(inputDirection.ToString());
+		//GD.Print(inputDirection.ToString());
 
 		if (Velocity != Vector2.Zero)
 		{

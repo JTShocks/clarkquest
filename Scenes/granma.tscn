@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dj8ycftcu7xhi"]
+[gd_scene load_steps=8 format=3 uid="uid://dj8ycftcu7xhi"]
 
 [ext_resource type="Texture2D" uid="uid://cxeki22d61cvl" path="res://Assets/Art/Sprites/NPC's/Granma/frame0000.png" id="1_nmhhj"]
 [ext_resource type="Script" uid="uid://dkea70rdtai33" path="res://Assets/Scripts/Systems/DialogueSystem/NPC.cs" id="1_t7idy"]
 [ext_resource type="Texture2D" uid="uid://bvp7orqk8vvqd" path="res://Assets/Art/Sprites/NPC's/Granma/frame0001.png" id="2_t7idy"]
 [ext_resource type="Texture2D" uid="uid://dmbgmot6du2fe" path="res://Assets/Art/Sprites/NPC's/Granma/frame0002.png" id="3_fh8qe"]
 [ext_resource type="Texture2D" uid="uid://c4dsl76vmtjan" path="res://Assets/Art/Sprites/NPC's/Granma/frame0003.png" id="4_u2jih"]
-[ext_resource type="PackedScene" uid="uid://cvf3l6kh6dau3" path="res://Scenes/interact_area.tscn" id="5_y2pex"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ikia7"]
 animations = [{
@@ -44,5 +43,3 @@ frame_progress = 0.569805
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o06y3")
-
-[node name="InteractArea" parent="." instance=ExtResource("5_y2pex")]
