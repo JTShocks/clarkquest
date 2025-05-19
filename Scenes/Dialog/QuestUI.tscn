@@ -101,13 +101,39 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
 [node name="QuestTitle" type="RichTextLabel" parent="CanvasLayer/Panel/Contents/Details/QuestDetails"]
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
+theme = ExtResource("1_5wg5t")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Task Title"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="QuestDescription" type="RichTextLabel" parent="CanvasLayer/Panel/Contents/Details/QuestDetails"]
+custom_minimum_size = Vector2(0, 192)
 layout_mode = 2
+theme = ExtResource("1_5wg5t")
+theme_override_font_sizes/normal_font_size = 36
+text = "Task description and notes."
 
 [node name="QuestObjectives" type="VBoxContainer" parent="CanvasLayer/Panel/Contents/Details/QuestDetails"]
 layout_mode = 2
+theme = ExtResource("1_5wg5t")
 
 [node name="QuestRewards" type="VBoxContainer" parent="CanvasLayer/Panel/Contents/Details/QuestDetails"]
 layout_mode = 2
+theme = ExtResource("1_5wg5t")
+
+[node name="CloseButton" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -38.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = 38.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "X"
