@@ -39,7 +39,7 @@ npc_id = "npc_01"
 position = Vector2(0, -42)
 sprite_frames = SubResource("SpriteFrames_ikia7")
 autoplay = "default"
-frame_progress = 0.569805
+frame_progress = 0.0868452
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_o06y3")
