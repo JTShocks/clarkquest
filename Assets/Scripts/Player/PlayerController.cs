@@ -25,6 +25,8 @@ public partial class PlayerController : CharacterBody2D
 
 	GodotObject raycastTarget;
 
+	[Export] QuestTracker questTracker;
+
 
 	private bool isFacingLeft = false;
 
@@ -42,6 +44,7 @@ public partial class PlayerController : CharacterBody2D
 		interactPrompt.Visible = false;
 
 		Global.player = this;
+		questTracker.Visible = false;
 
 	}
 

@@ -1,10 +1,12 @@
-[gd_scene load_steps=32 format=3 uid="uid://dcoaxva7wluhy"]
+[gd_scene load_steps=34 format=3 uid="uid://dcoaxva7wluhy"]
 
 [ext_resource type="Script" uid="uid://c5pp2ss8jowix" path="res://Assets/Scripts/Player/PlayerController.cs" id="1_cvnsp"]
 [ext_resource type="AnimationNodeStateMachinePlayback" uid="uid://c2al4rfqsjib0" path="res://Scenes/new_animation_node_state_machine_playback.tres" id="2_6t5aa"]
 [ext_resource type="SpriteFrames" uid="uid://bsnk3jo0s0w16" path="res://Scenes/player_animations.tres" id="2_cvnsp"]
 [ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Scenes/default_text_theme.tres" id="4_fkybt"]
 [ext_resource type="FontFile" uid="uid://ddpws04rl0o60" path="res://Assets/Art/Fonts/chalkboard_3/Chalkboard-Regular.ttf" id="5_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://pi0xqhyqvpcj" path="res://Assets/Art/Sprites/DollarBill_big.png" id="6_x3wgy"]
+[ext_resource type="Script" uid="uid://cfxyxn6t8i4ac" path="res://Assets/Scripts/Systems/Quest/QuestTracker.cs" id="7_3smsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
 size = Vector2(32, 40)
@@ -307,13 +309,14 @@ nodes/Locomotion/node = SubResource("AnimationNodeStateMachine_3smsa")
 nodes/Locomotion/position = Vector2(-280, 60)
 node_connections = [&"output", 0, &"Locomotion"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationTree", "interactPrompt")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationTree", "interactPrompt", "questTracker")]
 motion_mode = 1
 script = ExtResource("1_cvnsp")
 moveSpeed = 350
 animationTree = NodePath("AnimationTree")
 animationMode = ExtResource("2_6t5aa")
-interactPrompt = NodePath("Control/InteractPrompt")
+interactPrompt = NodePath("HUD/Control/InteractPrompt")
+questTracker = NodePath("HUD/QuestTracker")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 
@@ -340,7 +343,11 @@ parameters/Locomotion/conditions/is_moving = false
 parameters/Locomotion/Idle/blend_position = -0.997824
 parameters/Locomotion/Walk/blend_position = Vector2(0, 1)
 
-[node name="Control" type="Control" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -72.0
@@ -348,7 +355,7 @@ offset_top = -144.0
 offset_right = 72.0
 offset_bottom = 16.0
 
-[node name="InteractPrompt" type="RichTextLabel" parent="Control"]
+[node name="InteractPrompt" type="RichTextLabel" parent="HUD/Control"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -369,4 +376,71 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="Money" type="ColorRect" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 116.0
+grow_horizontal = 0
+color = Color(0.141176, 0.141176, 0.141176, 0)
+
+[node name="Icon" type="TextureRect" parent="HUD/Money"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 64.0
+grow_vertical = 2
+texture = ExtResource("6_x3wgy")
+expand_mode = 2
+
+[node name="Amount" type="RichTextLabel" parent="HUD/Money"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("4_fkybt")
+theme_override_font_sizes/normal_font_size = 50
+text = "0"
+scroll_active = false
+vertical_alignment = 1
+
+[node name="QuestTracker" type="ColorRect" parent="HUD"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 316.0
+offset_bottom = 216.0
+color = Color(0.141176, 0.141176, 0.141176, 1)
+script = ExtResource("7_3smsa")
+
+[node name="Details" type="VBoxContainer" parent="HUD/QuestTracker"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Title" type="RichTextLabel" parent="HUD/QuestTracker/Details"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme = ExtResource("4_fkybt")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Current Objective"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Objectives" type="VBoxContainer" parent="HUD/QuestTracker/Details"]
+layout_mode = 2
+size_flags_vertical = 3
