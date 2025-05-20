@@ -33,8 +33,7 @@ public partial class Dialog : Resource
 
         if (dialogs.ContainsKey(npc_id))
         {
-            Godot.Collections.Dictionary dialog = dialogs[npc_id].AsGodotDictionary();
-            return dialog["trees"].AsGodotDictionary();
+            return ((Godot.Collections.Dictionary)dialogs[npc_id])["trees"].AsGodotDictionary();
         }
         else
         {

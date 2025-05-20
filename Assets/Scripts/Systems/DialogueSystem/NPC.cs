@@ -14,11 +14,63 @@ public partial class NPC : CharacterBody2D, IEntity, IInteractable
 
     [Export] Dialog dialogResource;
 
+    string currentState = "start";
+    int currentBranchIndex = 0;
+
+
+    public override void _Ready()
+    {
+        base._Ready();
+        dialogResource.LoadFromJSON("res://Resources/Dialog/dialog_data.json");
+    }
+
+
 
     public void StartDialog()
     {
         GD.Print("Dialog has started");
+        Godot.Collections.Dictionary npcDialogs = dialogResource.GetNPCDialog(npc_id);
+        if (npcDialogs.Count == 0)
+        {
+            return;
+        }
     }
+    /// <summary>
+    /// Get current branch dialog
+    /// </summary>
+    /// <returns></returns>
+    public string GetCurrentDialog()
+    {
+        Godot.Collections.Dictionary npcDialogs = dialogResource.GetNPCDialog(npc_id);
+        if (currentBranchIndex < npcDialogs.Count)
+        {
+            foreach (var (dialog, value) in ((Godot.Collections.Dictionary)npcDialogs[currentBranchIndex])["dialogs"].AsGodotDictionary())
+            {
+                if (dialog.AsString() == currentState)
+                {
+                    return value.AsString();
+                }
+            }
+        }
+        return String.Empty;
+    }
+    /// <summary>
+    /// Update dialog branch
+    /// </summary>
+    /// <param name="branchIndex"></param>
+    public void SetDialogTree(int branchIndex)
+    {
+        currentBranchIndex = branchIndex;
+        currentState = "start";
+    }
+
+    public void SetDialogState(string state)
+    {
+        currentState = state;
+    }
+
+
+
 
     public bool Interact()
     {
