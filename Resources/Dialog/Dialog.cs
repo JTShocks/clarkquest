@@ -33,10 +33,11 @@ public partial class Dialog : Resource
 
         if (dialogs.ContainsKey(npc_id))
         {
-            return ((Godot.Collections.Dictionary)dialogs[npc_id])["trees"].AsGodotDictionary();
+            return ((Godot.Collections.Dictionary)dialogs[npc_id])["tree"].AsGodotDictionary();
         }
         else
         {
+            GD.PrintErr("Error: ID not present in dialogs: ", npc_id);
             return null;
         }
     }

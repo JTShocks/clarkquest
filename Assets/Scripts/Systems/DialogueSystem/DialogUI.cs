@@ -17,6 +17,20 @@ public partial class DialogUI : Control
         dialogText = GetNode<RichTextLabel>("CanvasLayer/Panel/DialogBox/DialogText");
         dialogOptions = GetNode<HBoxContainer>("CanvasLayer/Panel/DialogBox/DialogOptions");
 
+
+        HideDialog();
+
+    }
+
+
+    public void ShowDialog()
+    {
+        panel.Visible = true;
+    }
+    public void HideDialog()
+    {
+        panel.Visible = false;
+        Global.player.canMove = true;
     }
 
 

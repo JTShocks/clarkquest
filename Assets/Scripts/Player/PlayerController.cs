@@ -9,7 +9,7 @@ public partial class PlayerController : CharacterBody2D
 	[Export]
 	public int moveSpeed;
 
-	bool canMove = true;
+	public bool canMove = true;
 
 	bool isMoving;
 	bool isIdle;
@@ -75,7 +75,12 @@ public partial class PlayerController : CharacterBody2D
 				var target = raycastTarget as IInteractable;
 				if (target != null)
 				{
+					canMove = false;
 					target.Interact();
+					if (raycastTarget is Node selected && selected.IsInGroup("NPC"))
+					{
+						selected.Call("StartDialog");
+					}
 
 				}
 			}

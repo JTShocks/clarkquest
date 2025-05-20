@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_u2jih"]
 script = ExtResource("2_fh8qe")
-dialogs = null
+dialogs = {}
 metadata/_custom_type_script = "uid://dwke0sawt8s1l"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ikia7"]
@@ -39,7 +39,7 @@ size = Vector2(90, 48)
 motion_mode = 1
 script = ExtResource("1_t7idy")
 name = "Granma"
-npc_id = "npc_01"
+npc_id = "npc_1"
 dialogResource = SubResource("Resource_u2jih")
 
 [node name="Granma" type="AnimatedSprite2D" parent="."]
