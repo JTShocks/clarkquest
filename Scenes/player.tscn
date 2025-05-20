@@ -1,9 +1,9 @@
 [gd_scene load_steps=34 format=3 uid="uid://dcoaxva7wluhy"]
 
 [ext_resource type="Script" uid="uid://c5pp2ss8jowix" path="res://Assets/Scripts/Player/PlayerController.cs" id="1_cvnsp"]
-[ext_resource type="AnimationNodeStateMachinePlayback" uid="uid://c2al4rfqsjib0" path="res://Scenes/new_animation_node_state_machine_playback.tres" id="2_6t5aa"]
-[ext_resource type="SpriteFrames" uid="uid://bsnk3jo0s0w16" path="res://Scenes/player_animations.tres" id="2_cvnsp"]
-[ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Scenes/default_text_theme.tres" id="4_fkybt"]
+[ext_resource type="AnimationNodeStateMachinePlayback" uid="uid://c2al4rfqsjib0" path="res://Resources/Animations/new_animation_node_state_machine_playback.tres" id="2_6t5aa"]
+[ext_resource type="SpriteFrames" uid="uid://bsnk3jo0s0w16" path="res://Resources/Animations/player_animations.tres" id="2_cvnsp"]
+[ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Resources/Themes/default_text_theme.tres" id="4_fkybt"]
 [ext_resource type="FontFile" uid="uid://ddpws04rl0o60" path="res://Assets/Art/Fonts/chalkboard_3/Chalkboard-Regular.ttf" id="5_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://pi0xqhyqvpcj" path="res://Assets/Art/Sprites/DollarBill_big.png" id="6_x3wgy"]
 [ext_resource type="Script" uid="uid://cfxyxn6t8i4ac" path="res://Assets/Scripts/Systems/Quest/QuestTracker.cs" id="7_3smsa"]

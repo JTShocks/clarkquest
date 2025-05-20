@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8u3u3ntbjorf"]
 
 [ext_resource type="Script" uid="uid://pfiwodc221gj" path="res://Assets/Scripts/Systems/DialogueSystem/DialogUI.cs" id="1_a7y81"]
-[ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Scenes/default_text_theme.tres" id="1_p3dy4"]
+[ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Resources/Themes/default_text_theme.tres" id="1_p3dy4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0wgv"]
 bg_color = Color(0.826422, 0.851922, 0.872313, 1)

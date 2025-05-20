@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvf3l6kh6dau3"]
 
 [ext_resource type="Script" uid="uid://146d0adv0755" path="res://Assets/Scripts/Interactable.cs" id="1_5u50n"]
-[ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Scenes/default_text_theme.tres" id="2_ot2l7"]
+[ext_resource type="Theme" uid="uid://dc4d8fxckc0e4" path="res://Resources/Themes/default_text_theme.tres" id="2_ot2l7"]
 [ext_resource type="FontFile" uid="uid://ddpws04rl0o60" path="res://Assets/Art/Fonts/chalkboard_3/Chalkboard-Regular.ttf" id="3_4wnxi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe0pu"]

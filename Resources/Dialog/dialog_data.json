@@ -1,0 +1,72 @@
+{
+	"npc_1": {
+		"tree": [
+			{
+				"branch_id": "npc_1_1",
+				"dialogs": [
+					{
+						"state": "start",
+						"text": "Oh hello there, honey. Are you eating well?",
+						"options": {
+							"How are you today?": "in_progress",
+							"Anything I can help with?": "give_quest",
+							"I gotta go.": "exit",
+						}
+					},
+					{
+						"state": "in_progress",
+						"text": "Oh hello there, honey. Are you eating well?",
+						"options": {
+							"Anything I can help with?": "give_quest",
+							"Nice talking with you.": "exit",
+						}
+					},
+					{
+						"state": "give_quests",
+						"text": "Would you be a dear and walk Reggie? I can't keep up with that little guy with my legs.",
+						"options": {
+							"No problem!": "give_quest",
+							"Sorry, maybe later": "exit",
+						}
+					},
+					{
+						"state": "end",
+						"text": "Always nice to see you dearie. Don't be a stranger!",
+						"options": {
+						}
+					},
+										{
+						"state": "exit",
+						"text": "That's alright, darling. Make sure to eat something!",
+						"options": {
+						}
+					},
+				]
+			},
+			{
+				"branch_id": "npc_1_2",
+				"dialogs": []
+			},
+			{
+				"branch_id": "npc_1_default",
+				"dialogs": []
+			},
+		],
+	},
+	"npc_2": {
+		"tree": [
+			{
+				"branch_id": "npc_2_1",
+				"dialogs": []
+			},
+			{
+				"branch_id": "npc_2_2",
+				"dialogs": []
+			},
+			{
+				"branch_id": "npc_2_default",
+				"dialogs": []
+			},
+		],
+	},
+}
