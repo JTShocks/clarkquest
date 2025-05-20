@@ -12,6 +12,8 @@ public partial class NPC : CharacterBody2D, IEntity, IInteractable
 
     [Export] public string npc_id;
 
+    [Export] Dialog dialogResource;
+
 
     public void StartDialog()
     {
